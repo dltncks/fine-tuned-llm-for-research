@@ -36,10 +36,7 @@ pip install -r requirements.txt
 # 3. build dataset  (~10 min / 1.4 GB)
 python prepare_data.py
 
-# 4. Train (LoRA)
-
-```powershell
-# full data, 1 epoch (≈ 8 h CPU, 90 min RTX 3060)
+# 4. Train (LoRA)  full data, 1 epoch (≈ 8 h CPU, 90 min RTX 3060)
 python finetune.py --data_dir data --output_dir runs/lora-r8 --num_train_epochs 1 --per_device_train_batch_size 2 --gradient_accumulation_steps 8 --learning_rate 5e-5
 ```
 
