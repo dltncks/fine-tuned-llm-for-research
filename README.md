@@ -36,7 +36,7 @@ pip install -r requirements.txt
 # 3. build dataset  (~10 min / 1.4 GB)
 python prepare_data.py
 
-## 🖥️ Train (LoRA)
+# 4. Train (LoRA)
 
 ```powershell
 # full data, 1 epoch (≈ 8 h CPU, 90 min RTX 3060)
@@ -103,7 +103,7 @@ fine-tuned-llm-for-research/
 │
 ├─ prepare_data.py      ← build problem/approach pairs
 ├─ finetune.py          ← LoRA training script
-├─ run_evaluation.py    ← ROUGE/BLEU/BERTScore (opt GPTScore)
+├─ run_evaluation.py    ← ROUGE/BLEU/BERTScore
 ├─ infer.py             ← chat interface
 └─ requirements.txt
 ```
