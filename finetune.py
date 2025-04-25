@@ -82,7 +82,7 @@ def main():
     data = raw.map(preprocess, remove_columns=["problem", "approach"])
 
     # ---------------- model ---------------------------------------------------
-    dtype = torch.float32                     ### FIX ② – always FP32
+    dtype = torch.float32                     
     device_map = "auto" if torch.cuda.is_available() else {"": "cpu"}
 
     model = AutoModelForCausalLM.from_pretrained(
@@ -116,7 +116,7 @@ def main():
         fp16=False, bf16=False,
         optim="adamw_torch",
         report_to="none",
-        max_grad_norm=1.0,                    ### FIX ④ – gradient clipping
+        max_grad_norm=1.0,                  
         remove_unused_columns=False,
         max_steps=args.max_steps,
     )
@@ -126,7 +126,7 @@ def main():
         args=targs,
         train_dataset=data["train"],
         eval_dataset=data["validation"],
-        data_collator=default_data_collator,  ### FIX ①
+        data_collator=default_data_collator,  
     )
 
     trainer.train()
@@ -136,7 +136,7 @@ def main():
     # ------------- merge LoRA for single-folder inference ---------------------
     merged = Path(args.output_dir) / "merged"
     model.merge_and_unload().save_pretrained(merged)
-    print("✓ done →", merged.resolve())
+    print("done →", merged.resolve())
 
 if __name__ == "__main__":
     main()
