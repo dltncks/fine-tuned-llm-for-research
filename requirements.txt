@@ -1,0 +1,11 @@
+torch==2.2.1       # CPU build; swap for +cu121 if you have CUDA
+transformers==4.39.2
+datasets==2.19.2
+accelerate==0.27.2
+peft==0.10.0
+evaluate==0.4.1
+bert-score==0.3.13
+sentencepiece==0.2.0
+scikit-learn==1.4.2
+tqdm==4.66.4
+numpy==1.26.4
